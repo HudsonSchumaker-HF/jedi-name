@@ -45,16 +45,9 @@ int main(int argc, char* argv[]) {
 
     if (argc == 5) {
         lastName = argv[1];
-        toLowerCase(lastName);
-
         firstName = argv[2];
-        toLowerCase(firstName);
-        
         motherName = argv[3];
-        toLowerCase(motherName);
-
         cityName = argv[4];
-        toLowerCase(cityName);
     } else {
         lastName = getInput("Enter your last name: ");
         firstName = getInput("Enter your first name: ");
@@ -71,7 +64,6 @@ std::string getInput(const std::string &prompt) {
     std::string input;
     std::cout << prompt;
     std::getline(std::cin, input);
-    toLowerCase(input);
     std::system(CLEAR);  // Clear the terminal screen
     std::cout << "---- Jedi Name Creation ----" << std::endl;
     return input;
@@ -79,6 +71,7 @@ std::string getInput(const std::string &prompt) {
 
 std::string generateJediName(const std::string &lastName, const std::string &firstName, const std::string &motherName, const std::string &cityName) {
     std::string jediName = lastName.substr(0, 3) + firstName.substr(0, 2) + motherName.substr(0, 2) + cityName.substr(0, 3);
+    toLowerCase(jediName);
     jediName[0] = std::toupper(jediName[0]);
     return jediName;
 }
