@@ -1,5 +1,5 @@
 /**
-* @file jedi.cpp
+* @file Jedi.cpp
 * @author Hudson Schumaker
 * @brief This program generates a Jedi name based on user input.
 * The Jedi name is created by combining parts of the user's last name, first name, mother's name, and city name.
@@ -38,18 +38,31 @@ std::string getInput(const std::string &prompt);
 */
 std::string generateJediName(const std::string &lastName, const std::string &firstName, const std::string &motherName, const std::string &cityName);
 
-int main(void) {
+int main(int argc, char* argv[]) {
     std::system(CLEAR);
     std::cout << "---- Jedi Name Creation ----" << std::endl;
     std::string lastName, firstName, motherName, cityName;
 
-    lastName = getInput("Enter your last name: ");
-    firstName = getInput("Enter your first name: ");
-    motherName = getInput("Enter your mother's name: ");
-    cityName = getInput("Enter your city name: ");
+    if (argc == 5) {
+        lastName = argv[1];
+        toLowerCase(lastName);
+
+        firstName = argv[2];
+        toLowerCase(firstName);
+        
+        motherName = argv[3];
+        toLowerCase(motherName);
+
+        cityName = argv[4];
+        toLowerCase(cityName);
+    } else {
+        lastName = getInput("Enter your last name: ");
+        firstName = getInput("Enter your first name: ");
+        motherName = getInput("Enter your mother's name: ");
+        cityName = getInput("Enter your city name: ");
+    }
 
     std::string jediName = generateJediName(lastName, firstName, motherName, cityName);
-
     std::cout << "Your Jedi Name is: " << jediName << std::endl;
     return 0;
 }
