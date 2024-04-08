@@ -48,11 +48,6 @@ int main(void) {
     motherName = getInput("Enter your mother's name: ");
     cityName = getInput("Enter your city name: ");
 
-    toLowerCase(lastName);
-    toLowerCase(firstName);
-    toLowerCase(motherName);
-    toLowerCase(cityName);
-
     std::string jediName = generateJediName(lastName, firstName, motherName, cityName);
 
     std::cout << "Your Jedi Name is: " << jediName << std::endl;
@@ -63,6 +58,7 @@ std::string getInput(const std::string &prompt) {
     std::string input;
     std::cout << prompt;
     std::getline(std::cin, input);
+    toLowerCase(input);
     std::system(CLEAR);  // Clear the terminal screen
     std::cout << "---- Jedi Name Creation ----" << std::endl;
     return input;
