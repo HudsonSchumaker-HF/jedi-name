@@ -1,2 +1,2 @@
 build:
-	g++ -O3 -o jedi Jedi.cpp
+	g++ -std=c++17 -O3 -o jedi Jedi.cpp
